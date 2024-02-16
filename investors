@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VBeyond Development - ครบเครื่องเรื่องอสังหา มองหา วี บียอนด์</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE7" />
+ 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8" />	
+	<meta content="VBeyond Development - ครบเครื่องเรื่องอสังหา มองหา วี บียอนด์" property="og:title" />
+ 	<meta content="VBeyond Development - ครบเครื่องเรื่องอสังหา มองหา วี บียอนด์" property="twitter:title" />
+	<link rel="icon" href="https://www.irplus.in.th/Listed/VBYOND/images/icons/logo.png">
+<style>
+
+#iframe-page,#irplus{
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden;
+}
+
+.iframe-page {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden;
+}
+
+.iframe-page iframe {
+    width: 100%;
+    height: 100vh;
+    border: 0;
+}
+</style>
+
+
+</head>
+
+ 
+<body id="iframe-page">
+
+<div class="iframe-page">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<iframe width="1920" height="768" src="" title="Investor" id="irplus"></iframe>
+</div>
+</div>
+</div>
+</div>
+
+
+
+		
+		<script>
+
+	var Page = "";
+	var ParamStr = "";
+	var IRPage ="";
+	var irplus="";
+
+	var path = location.pathname + location.search;
+	const regex = /%27|%22|%3C|%3E|['"<>(){\[\]}]/g;
+	path = path.replace(regex, '');	
+	var appId = path.split('/');
+	var ParamArr = appId[2].split('?');
+
+	if(ParamArr.length == 2){ //have querystring
+		Page = ParamArr[0];
+		ParamStr = ParamArr[1];		
+	}else{
+		Page = ParamArr[0];		
+	}
+
+	if(Page=="en"){Page="";}
+
+	if((Page!="")&&(ParamArr[0].indexOf(".HTML")==0)){		
+		if(ParamStr!=""){
+			IRPage = "th/" + Page + "?" + ParamStr;	
+		}else{
+			IRPage = "th/" + Page;			
+		}
+	}else{
+		if(ParamStr!=""){
+			if(ParamStr.indexOf("&") > -1){
+				var ParamArr2 = ParamStr.split('&');
+				ParamStr = ParamArr2[0] + "?" + ParamArr2.slice(1).join("&");
+				IRPage = "th/" + ParamStr;		
+			}else{
+				IRPage = "th/" + ParamStr;			
+			}				
+		}else{
+			IRPage = "th";	
+		}
+	}	
+		
+	document.getElementById("irplus").src = "https://www.irplus.in.th/Listed/VBYOND/" + IRPage ;
+	
+
+</script>
+</body>
+</html>
+
